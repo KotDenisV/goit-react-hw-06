@@ -6,7 +6,7 @@ import { addContacts } from '../../redux/contactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
 function ContactForm() {
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
     const registerSchema = Yup.object({
     name: Yup.string()
       .required('This field is required!')
@@ -23,10 +23,9 @@ function ContactForm() {
     number: '',    
   };
     
-    const handleSubmit = (values, actions) => {
-      console.log(values);
+    const handleSubmit = (values, actions) => {      
       const newContact = {
-        id: nanoid,
+        id: nanoid(),
         name: values.name,
         number: values.number,
       };
